@@ -7,29 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <style>
+        .ban_img {
+            height: 400px;
+        }
+    </style>
     <title>BD News24</title>
 </head>
 
 <body class="body_col">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand custom_font" href="#">BD News24</a>
+            <a class="navbar-brand custom_font" href="index.php">BD News24</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link custom_font" aria-current="index.php" href="#">Home</a>
+                        <a class="nav-link active custom_font" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link custom_font" href="features.php">Features</a>
+                        <a class="nav-link active custom_font" href="#">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link custom_font" href="contact.php">Contact</a>
+                        <a class="nav-link active custom_font" href="#">Conatct</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link custom_font" href="about_us.php">About Us</a>
+                        <a class="nav-link active custom_font" href="#">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -38,8 +43,8 @@
 
 
     <div class="col1">
-        <div class="d-grid gap-2 m-4">
 
+        <div class="d-grid gap-2 m-4">
             <?php
 
             include "admin/configure.php";
@@ -49,10 +54,11 @@
             if ($count > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
 
+
+
             ?>
                     <a href="category_wise_post.php?cat_id=<?php echo $row['category_id'] ?>" class="btn custom_cat" type="button"><?php echo $row['category_name'] ?></a>
             <?php
-
                 }
             }
             ?>
@@ -61,6 +67,14 @@
     </div>
 
     <div class="col2">
+        <h5 class="mt-4 custom_font">Search Result For:<?php
+
+
+                                                        $search_word = $_GET['search'];
+                                                        echo " $search_word";
+
+
+                                                        ?> </h5>
 
         <?php
 
@@ -73,12 +87,14 @@
             $page_num = 1;
         }
 
+
         $offset = ($page_num - 1) * $limit;
 
         $query = "SELECT post.post_id, post.post_title, post.post_date,post.category,post.post_desc,post.image,post.author, 
         category.category_name,users.username FROM post
         LEFT JOIN category ON post.category = category.category_id
         LEFT JOIN users ON post.author = users.id
+        WHERE post.post_title LIKE '%{$search_word}%'
         ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
 
         $result = mysqli_query($connection, $query) or die("Can't Query");
@@ -87,7 +103,11 @@
 
             while ($row = mysqli_fetch_assoc($result)) {
 
+
         ?>
+
+
+
                 <div class="news">
                     <div class="news_image">
                         <img class="post_image" src="admin/uploaded_image/<?php echo $row['image'] ?>" alt="">
