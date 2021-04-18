@@ -7,11 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <style>
-        .ban_img {
-            height: 400px;
-        }
-    </style>
     <title>BD News24</title>
 </head>
 
@@ -25,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active custom_font" aria-current="page" href="#">Home</a>
+                        <a class="nav-link custom_font" aria-current="index.php" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active custom_font" href="#">Features</a>
+                        <a class="nav-link custom_font" href="features.php">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active custom_font" href="#">Conatct</a>
+                        <a class="nav-link custom_font" href="contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active custom_font" href="#">About Us</a>
+                        <a class="nav-link custom_font" href="about_us.php">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -43,8 +38,8 @@
 
 
     <div class="col1">
-
         <div class="d-grid gap-2 m-4">
+
             <?php
 
             include "admin/configure.php";
@@ -54,11 +49,10 @@
             if ($count > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
 
-
-
             ?>
                     <a href="category_wise_post.php?cat_id=<?php echo $row['category_id'] ?>" class="btn custom_cat" type="button"><?php echo $row['category_name'] ?></a>
             <?php
+
                 }
             }
             ?>
@@ -79,7 +73,6 @@
             $page_num = 1;
         }
 
-
         $offset = ($page_num - 1) * $limit;
 
         $query = "SELECT post.post_id, post.post_title, post.post_date,post.category,post.post_desc,post.image,post.author, 
@@ -94,11 +87,7 @@
 
             while ($row = mysqli_fetch_assoc($result)) {
 
-
         ?>
-
-
-
                 <div class="news">
                     <div class="news_image">
                         <img class="post_image" src="admin/uploaded_image/<?php echo $row['image'] ?>" alt="">
