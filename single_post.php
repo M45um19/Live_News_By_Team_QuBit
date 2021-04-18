@@ -22,13 +22,13 @@
             <a class="nav-link active custom_font" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">Features</a>
+            <a class="nav-link active custom_font" href="features.php">Features</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">Conatct</a>
+            <a class="nav-link active custom_font" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">About Us</a>
+            <a class="nav-link active custom_font" href="about_us.php">About Us</a>
             </li>
         </ul>
         </div>
@@ -85,9 +85,13 @@
         }
         ?>
     </div>
+    
 
 
 </div>
+<footer class="bg-dark">
+        <p class="text-white text-center">All right reserved by &copy Team_QuBit 2021</p>
+    </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>

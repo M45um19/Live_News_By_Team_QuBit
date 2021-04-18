@@ -26,13 +26,13 @@
             <a class="nav-link active custom_font" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">Features</a>
+            <a class="nav-link active custom_font" href="features.php">Features</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">Conatct</a>
+            <a class="nav-link active custom_font" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active custom_font" href="#">About Us</a>
+            <a class="nav-link active custom_font" href="about_us.php">About Us</a>
             </li>
         </ul>
         </div>
@@ -204,7 +204,7 @@
       
     </div>
     <footer class="bg-dark">
-        <p class="text-white text-center">All right reserved by &copy Naim Istiak Masum</p>
+        <p class="text-white text-center">All right reserved by &copy Team_QuBit 2021</p>
     </footer>
 
 
